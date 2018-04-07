@@ -1,0 +1,47 @@
+baseURL = "https://practicalgenomics.github.io"
+languageCode = "en-us"
+title = "Practical Genomics Workshop"
+theme = "hugo-lithium-theme"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+publishDir = "../practicalgenomics.github.io"
+
+[[menu.main]]
+    name = "Preparation"
+    url = "/preparation/"
+    weight = 1
+[[menu.main]]
+    name = "Slack"
+    url = "/slack/"
+    weight = 2
+[[menu.main]]
+    name = "Cheatsheets"
+    url = "https://www.rstudio.com/resources/cheatsheets/"
+    weight = 3
+[[menu.main]]
+    name = "RStudio"
+    url = "/rstudio/"
+    weight = 4
+[[menu.main]]
+    name = "MARCC"
+    url = "/marcc/"
+    weight = 5
+[[menu.main]]
+    name = "Registration"
+    url = "http://genomics.jhu.edu/workshop"
+    weight = 6
+
+[params]
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
+
+    [params.logo]
+    url = "wordlecircle_400x400.jpg"
+    width = 50
+    height = 50
+    alt = "Logo"

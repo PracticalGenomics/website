@@ -1,0 +1,18 @@
+---
+title: "MARCC"
+---
+
+Compute resources for this workshop are being generously provided by the Maryland Advanced Research Computing Center ([MARCC](https://www.marcc.jhu.edu)).  Access requires an [ssh](https://en.wikipedia.org/wiki/Secure_Shell) client and [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) using Google Authenticator.  You will need to do the following to [access MARCC](https://www.marcc.jhu.edu/getting-started/connecting-to-marcc/):
+
+1. Check your email for a **workshop specific** userid and password (e.g. `john-temp@jhu.edu`)
+1. Install Google Authenticator on your phone ([iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605) / [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2))
+1. Add MARCC to Google Authenticator by [retrieving](https://password.marcc.jhu.edu/?action=qrretrieve) and scanning your QR code
+1. Test your connection
+    - Log in using ssh by opening Terminal.app and entering
+    ```
+    ssh gateway2.marcc.jhu.edu -l userid
+    ```
+    - When asked for "Verification Code" enter the six digit from Google Authenticator (expires every 20 seconds)
+    - Enter your password
+
+NOTE: Windows users will need to install an ssh client such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 

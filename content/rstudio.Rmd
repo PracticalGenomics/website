@@ -1,0 +1,14 @@
+---
+title: "RStudio"
+---
+
+<a href="https://rmarkdown.rstudio.com/r_notebooks.html">
+  <img src="https://rstudioblog.files.wordpress.com/2016/09/screen-shot-2016-09-21-at-3-42-44-pm.png" style="float: right; height: 250px;"/>
+<a/>
+
+RStudio provides a [rich environment](https://www.rstudio.com/products/rstudio/features/) to work with R including a syntax-highlighting editor, integrated help and documentation, and interactive [literate programming](https://en.wikipedia.org/wiki/Literate_programming) through [R Notebooks](https://rmarkdown.rstudio.com/r_notebooks.html).
+
+We make extensive use of [R Markdown](https://rmarkdown.rstudio.com) documents for preparation assignments, workshop sessions, and preparing reproducible reports.
+
+`r htmltools::HTML("{{< youtube tIvpUfiSrqc >}}")`
+

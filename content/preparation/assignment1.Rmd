@@ -1,0 +1,22 @@
+---
+title: "Prep Work #1 - Swirl and base R"
+date: "2018-03-05"
+---
+
+The [registration form](http://genomics.jhu.edu/registration.html) reserves your spot for two weeks.  You **must** complete this assignment or your spot may be forfeited to someone on the waiting list.  Afterwards, an additional 4-8 hours of work will be assigned each month leading up to the workshop (e.g. R and Unix tutorials, readings, software installation).
+
+1. Follow instructions at [Swirl Stats](http://swirlstats.com/students.html)
+    - Install [R](https://cran.rstudio.com) (must be version 3.4.3 or higher)
+    - Install [RStudio](https://www.rstudio.com/products/rstudio/download/) (must be version 1.1.423 or higher)
+    - Install swirl 
+    ```
+    install.packages( "swirl" )
+    ```
+    - Start swirl
+    ```
+    library( "swirl" )
+    swirl()
+    ```
+1. Once in Swirl, install “R Programming: The basics of programming in R”
+1. Do [lessons](https://github.com/swirldev/swirl_courses) 1: "Basic Building Blocks" through 15: "Base Graphics"
+1. Submit a screenshot of your final plot `hist( mtcars$mpg )` to genomics@jhu.edu

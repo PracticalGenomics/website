@@ -1,0 +1,25 @@
+---
+title: "Home Page Header"
+---
+
+# Welcome to Practical Genomics Workshop 2018!!
+
+```{r echo=FALSE}
+matFPKM <- read.table( "https://c-moor.github.io/data/matFPKM.txt", header=TRUE, sep="\t" )
+ecto <- rowSums( matFPKM[ , c( "ectoderm_rep1","ectoderm_rep2","ectoderm_rep3" ) ] )
+endo <- rowSums( matFPKM[ , c( "endoderm_rep1","endoderm_rep2" ) ] )
+meso <- rowSums( matFPKM[ , c( "mesoderm_rep1","mesoderm_rep2" ) ] )
+```
+
+```{r}
+M <-   log2( endo+1 ) - log2( meso+1 )
+A <- ( log2( endo+1 ) + log2( meso+1 ) ) / 2
+
+plot( A, M, pch=20, 
+      main="MA Plot Comparing Endoderm to Mesoderm RNA-seq" )
+```
+
+<center>
+  <img src="http://genomics.jhu.edu/images/Banner2.jpg" style="width: 700px;"/>
+  <img src="https://emb.carnegiescience.edu/sites/default/files/embryology-logo.png"/>
+</center>
