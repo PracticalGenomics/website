@@ -1,0 +1,28 @@
+---
+title: "Prep Work #2 - R Markdown and Unix"
+date: "2018-04-12"
+---
+
+Learning Objectives
+
+1. Learn some analysis workflows
+    - Obtain data programmatically
+    - Use R Markdown documents to communicate analyses
+1. Practice manipulating genomics data using R
+    - Subset data.frames: one or more columns, a block of rows, rows matching a specific column
+    - Visualize data: boxplot, barplot, scatterplot
+1. Learn the Unix command line
+
+
+Tasks
+
+1. Install software (if not already done)
+    - [Slack](https://practicalgenomics.github.io/slack/) for troubleshooting help
+    - [RStudio](https://practicalgenomics.github.io/rstudio/) to provide a rich R environment (must be version 1.1.423 or higher)
+    - [R](https://practicalgenomics.github.io/preparation/assignment1/) (must be version 3.4.3 or higher)
+1. Explore RNA-seq data in R
+    - Download assignment ( [`prepwork-apr.Rmd`](https://raw.githubusercontent.com/PracticalGenomics/assignments/master/prepwork-apr.Rmd) )
+        - Make sure to save file with extension `.Rmd` and not `.Rmd.txt`
+    - Save work as `prep-work-2-lastname.Rmd` and email to your TA
+    - Video example
+1. Codecademy's "[Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)"

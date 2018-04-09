@@ -10,5 +10,4 @@ RStudio provides a [rich environment](https://www.rstudio.com/products/rstudio/f
 
 We make extensive use of [R Markdown](https://rmarkdown.rstudio.com) documents for preparation assignments, workshop sessions, and preparing reproducible reports.
 
-`r htmltools::HTML("{{< youtube tIvpUfiSrqc >}}")`
-
+`r blogdown::shortcode('youtube', 'tIvpUfiSrqc')`
