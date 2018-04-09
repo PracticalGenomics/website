@@ -1,6 +1,6 @@
 ---
 title: "Prep Work #2 - R Markdown and Unix"
-date: "2018-04-12"
+date: "2018-04-09"
 ---
 
 Learning Objectives
