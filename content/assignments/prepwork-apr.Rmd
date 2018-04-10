@@ -1,0 +1,265 @@
+---
+title   : "Preparation Work - April"
+subtitle: "Practical Genomics 2018"
+author  : "Melissa Keinath"
+date    : "April 12, 2018"
+output:
+  html_notebook:
+    toc: true
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set( eval=FALSE )
+```
+
+
+## Learning Objectives
+
+1. Learn some analysis workflows
+    - Obtain data programmatically
+    - Use R Markdown documents to communicate analyses
+1. Practice manipulating genomics data using R
+    - Subset data.frames: one or more columns, a block of rows, rows matching a specific column
+    - Visualize data: boxplot, barplot, scatterplot
+
+## Assignment
+
+In this assignment, you will look through a gene expression dataset of highly purified human adult and developing fetal pancreatic a and b cells (data from a project that led to this paper doi:10.2337/db15-0039).
+
+- Task 1. Download and load datasets
+- Task 2. Visualize and explore data
+- Task 3. Subset data
+- Task 4. Plot data subsets
+
+## Preparation
+
+First we need to choose the working space where our work and data will be stored, then we need to download and load data.
+
+#### Working space
+
+Before you start, make a new folder called "PG2018" on your computer's desktop. Because R stores data in a directory on your computer, use `getwd()` (get working directory) to determine where you are working and where your data will be saved. This function has no arguments. If you are not working in your PG2018 folder on your desktop, use the function `setwd()` (set working directory) to provide a path to the folder. 
+
+```{r}
+# NOTE: For Windows computers, you will need to use \\ or / instead of \. For mac users, ~/Desktop/PG2018
+getwd()
+```
+
+## TASK 1: Download and Load Data
+
+#### Obtain data
+
+Download and load the pancreatic dataset from the recount2 repository, which contains summarized gene expression data from >70,000 human RNA-seq samples from the Sequence Read Archive (SRA). Use the function `download.file()` and the web link "http://idies.jhu.edu/recount/data/v2/SRP056835/counts_gene.tsv.gz" to download "SRP056835.tsv.gz". 
+
+```{r}
+download.file( "http://idies.jhu.edu/recount/data/v2/SRP056835/counts_gene.tsv.gz", "SRP056835.tsv.gz" )
+```
+
+Load the data using the function `read.table()`. Note that as the dataset contains headers you must use `header =TRUE`.  Assign the `data.frame` to the name "pancreas". 
+
+```{r}
+pancreas <- read.table( "SRP056835.tsv.gz", header=TRUE )
+```
+
+Download and load associated SRA run table "SraRunTable.txt" from "http://practicalgenomics.github.io/data/SraRunTable.txt"  
+
+```{r}
+# >>> Place your answer below
+```
+
+Load the data and assign it to the name "sra". Note that the data has headers and is tab delimited, so `sep = "\t"` must be used.
+
+```{r}
+# >>> Place your answer below
+```
+
+## TASK 2: View and Explore Data
+
+#### View data
+
+The most important first step in any data analyses is to look at the data. `data.frame`s can be explored interactively in RStudio. View all of the data by typing its assigned name or a view a reduced representation by using the function `head()` or `tail()`. The function `tail()` shows the end of a file and is especially useful for checking that a file downloaded completely. 
+
+View only the **end** of the pancreas `data.frame` to be sure it was loaded completely.
+
+```{r}
+# >>> Fix this command
+pancreas
+```
+
+View the entire pancreas `data.frame`.
+
+```{r}
+# >>> Place your answer below
+```
+
+View the beginning of the sra run table.
+
+```{r}
+# >>> Place your answer below
+```
+
+View the entire sra run table.
+
+```{r}
+# >>> Place your answer below
+```
+
+#### Basic exploration
+
+The functions `nrow()` and `ncol()` return the numbers of rows or columns present in the dataset. Use one of these functions to determine how many rows are in the pancreas `data.frame`.
+
+```{r}
+# >>> Fix this command
+(pancreas)
+```
+
+Use one of these functions to determine how many columns are in the pancreas `data.frame`. 
+
+```{r}
+# >>> Place your answer below
+```
+
+## TASK 3: Subset data.frames
+
+Before plotting data, it's important to know if the data can be plotted. By viewing the beginning of the pancreas `data.frame`, you can determine whether the data is numerical.
+
+```{r}
+head(pancreas)
+```
+
+You can see that the pancreas `data.frame` has a column containing gene ids, which are not numerical. In order to plot this data, this column must be removed. You can do this by subsetting the data. To get you started with the basic technique of subsetting, try several short exercises.
+
+#### Retrieve single cell, a row, and a column
+
+To retrieve a single cell from a `data.frame`, use the name of the `data.frame` and single square brackets containing [row#,col#]. View a single cell from row 1, column 2.
+
+```{r}
+# >>> Fix this command
+sra[row,column]
+```
+
+To retrieve an entire row record from the `data.frame`, simply use a comma to wildcard match the column number. Retrieve the first row record. 
+
+```{r}
+sra[1,]
+```
+
+To retrieve an entire column, replace the row number with a comma to wildcard match the row number. Use this to retrieve the first column.
+
+```{r}
+# >>> Place your answer below
+```
+
+The same column can be accessed using the `$` between the `data.frame` name and the column name with no spaces (hint: find the name of the column by looking at the data from one of the above steps.) Use the `$` and name of column 1 to retrieve the entire first column. 
+
+```{r}
+# >>> Place your answer below
+```
+
+#### Retrieving multiple rows and columns
+
+To retrieve multiple row records, use `c()` within the single square brackets. Retrieve rows 10 and 20. (hint: Don't forget the comma for columns.) 
+
+```{r}
+sra[c(10,20),]
+```
+
+Use the same technique to retrieve columns 1 and 4. 
+
+```{r}
+# >>> Place your answer below
+```
+
+Finally, if you need to retrieve several consecutive columns/rows, you can get rid of the `c` and use a `:` between the lowest and highest column numbers you wish to retrieve (i.e. for columns 2 through 6, use `(2:6)`). Retrieve all columns that are numerical from the pancreas dataset using a `:` so that it can be plotted in TASK 4.
+
+```{r}
+# >>> Fix this command
+pancreas
+```
+
+## TASK 4: Visualize data using plots
+
+#### Make a boxplot for numerical data
+
+The function `boxplot()` is used to build boxplots from numerical data. To plot the numerical data from the pancreas `data.frame`, type the subsetted data in the `()`.
+
+```{r}
+boxplot( pancreas[,1:24] )
+```
+
+To better view the data, fix the command below to make boxplots from the log2(x+1) numerical data from the pancreas `data.frame`. 
+
+```{r}
+log2( pancreas[,1:24] + 1 )
+```
+
+#### Make a barplot for numbers of genes with zero and nonzero values for each sample
+
+For every sample in the pancreas `data.frame`, there are multiple genes with no expression (i.e. value = 0). In order to plot how many genes with no expression we see for each sample, we must use logical indexing to focus on entries that match our criteria. We will use `colSums()` to count the number of instances where a value is = 0 in the pancreas `data.frame`, and assign the resulting data to the name "pan_zero". Change the code below to assign the resulting data to the name "pan_zero".
+
+```{r}
+# >>> Fix this command
+colSums( pancreas == 0 )
+```
+
+Look at the data called pan_zero.
+
+```{r}
+# >>> Place your answer below
+```
+
+Build a barplot using the function `barplot()` for the pan_zero data.
+
+```{r}
+barplot( pan_zero )
+```
+
+In the same way as above, assign the numbers of instances a column has nonzero values to the name "pan_nonzero".
+
+```{r}
+# >>> Place your answer below
+```
+
+Build a barplot from the nonzero data.
+
+```{r}
+# >>> Place your answer below
+```
+
+#### Make a scatterplot for mean fetal alpha cell expression vs. mean adult alpha cell expression
+
+In order to compare mean gene expression values among samples, we need to know what cell type each sample is. By referencing the sra run table, we can figure out the cell type (called "source_name") for each sample (called "Run"). Fix the code to retrieve data from these two columns.
+
+```{r}
+# >>> Fix this command
+sra["Run","source_name"]
+```
+
+The mean across an entire row or specific samples across a row can be calculated using the function `rowMeans()`. By viewing the column order for each sample in the pancreas `data.frame`, we can choose the proper columns for finding the mean expression values for adult alpha cells and fetal alpha cells. Fix the code to assign the resulting list of means to the name "adult_alpha_means".
+
+```{r}
+# >>> Fix this command
+rowMeans(pancreas[,c(11,12,14,15,16,17)], na.rm = FALSE)
+```
+
+To calculate the row means for the fetal alpha cell expression values, find the row means for the fetal alpha cell columns (7,8,9,10,13) and assign it to the name "fetal_alpha_means", just as above.
+
+```{r}
+# >>> Place your answer below
+```
+
+We can make a scatterplot of these means using the function `plot()`. Using `main=` we can name the plot, and we are also labeling the datapoints with the row number in order to quickly find gene names that show an obvious difference in expression.
+
+```{r}
+plot( adult_alpha_means,
+      fetal_alpha_means,
+      main = "Adult alpha cells vs Fetal alpha cells", 
+      text(x=adult_alpha_means, y=fetal_alpha_means, labels=1:58037) )
+```
+
+Although much of the data is difficult to visualize properly with this scale, we can use those points that already stand out to find the associated gene. Find the ensembl gene id associated with row 4393. (hint: the ensembl gene id is in the last column of the pancreas `data.frame`)
+
+```{r}
+# >>> Place your answer below
+```
+
+Using this gene id to check with Ensembl, we find that this is GCG (Glucagon), which plays a key role in glucose metabolism and homeostasis. While differential expression analyses would be a better way to find gene expression value differences among cell types and stage, this quick scatterplot was able to pull a gene whose expression clustered among alpha cell types in the study from the which the data came.
