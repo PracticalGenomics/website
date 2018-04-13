@@ -1,6 +1,6 @@
 ---
 title: "Prep Work #2 - R Markdown and Unix"
-date: "2018-04-09"
+date: "2018-04-13"
 ---
 
 Learning Objectives
@@ -21,8 +21,8 @@ Tasks
     - [RStudio](https://practicalgenomics.github.io/rstudio/) to provide a rich R environment (must be version 1.1.423 or higher)
     - [R](https://practicalgenomics.github.io/preparation/assignment1/) (must be version 3.4.3 or higher)
 1. Explore RNA-seq data in R ( [preview](https://practicalgenomics.github.io/assignments/prepwork-apr) )
+    - Video [example](https://www.youtube.com/watch?v=SbU-e14077E)
     - Download assignment ( [`prepwork-apr.Rmd`](https://raw.githubusercontent.com/PracticalGenomics/assignments/master/prepwork-apr.Rmd) )
         - Make sure to save file with extension `.Rmd` and not `.Rmd.txt`
-    - Save work as `prep-work-2-lastname.Rmd` and email to your TA
-    - Video [example](https://www.youtube.com/watch?v=SbU-e14077E)
+    - Save work as `prepwork-apr-lastname.Rmd` and email to your TA
 1. Codecademy's "[Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)"
