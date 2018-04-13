@@ -8,6 +8,7 @@ Learning Objectives
 1. Log into MARCC
     - Figure out two-factor authentication
     - Build Bowtie2 index
+    - Practice scp
 1. More practice with R
     - Debug error messages
     - Statistical thought (variance, difference)

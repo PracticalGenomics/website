@@ -3,9 +3,9 @@ title: "RNA-seq Commands on MARCC"
 date: "2018-04-13"
 ---
 
-RSEM
-SAMtools
-Bowtie
+- RSEM 1.3.0
+- Bowtie 1.2.2
+- SAMtools 1.3
 
 ```
 ssh gateway2.marcc.jhu.edu -l username@jhu.edu
@@ -27,9 +27,9 @@ module load bowtie/1.2.2
 rsem-prepare-reference --bowtie --gtf hg19-iGenomes.gtf chr20.fa chr20rsem
 
 cd ..
-cp -R ~/work/rawdata .
+# cp -R ~/work/rawdata .
 cd rawdata
-./doRename.sh ALIAS
+# ./doRename.sh ALIAS
 gunzip HUES64.mRNA*gz
 
 cd ..

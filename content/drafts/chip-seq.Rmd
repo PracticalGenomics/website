@@ -1,0 +1,87 @@
+---
+title: "ChIP-seq Commands on MARCC"
+date: "2018-04-13"
+---
+
+- FastQC 0.11.7
+- Bowtie 1.2.2
+- SAMtools 1.3
+- deepTools 2.5.7
+- MACS2 2.1.1.20160309
+
+[10:00 - 10:30] FastQC and Bowtie
+
+```
+ssh gateway2.marcc.jhu.edu -l username@jhu.edu
+
+srun -p shared -c 1 --mem 1024 -t 30 --pty bash
+
+cd ~/scratch
+cp -R ~/work/rawdata .
+cd rawdata
+./doRename.sh ALIAS
+gunzip HUES64_rep1.H3K4me3.chr20.fastq.gz 
+
+cd ..
+mkdir chip-seq
+cd chip-seq
+
+module load fastqc/0.11.7
+fastqc -o . ../rawdata/HUES64_rep1.H3K4me3.chr20.fastq 
+
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/*.html Desktop
+
+cd ../genomes
+module load bowtie/1.2.2
+bowtie-build chr20.fa chr20
+
+cd ../chip-seq
+bowtie -S ../genomes/chr20 ../rawdata/HUES64_rep1.H3K4me3.chr20.fastq K4.sam
+```
+
+[10:45 - 11:15] Wrangle Alignments with SAMtools
+
+```
+module load anaconda-python/3.6
+source activate pg2018
+
+samtools view -b -S K4.sam > K4.bam
+samtools sort -o K4.sorted.bam K4.bam
+samtools index K4.sorted.bam
+
+samtools view -f 4 K4.sorted.bam > K4.unaligned.sam
+```
+
+[11:15 - 11:45] Visualize Data with IGV
+
+```
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/K4.sorted.bam* Desktop
+```
+
+[11:45 - 12:15] Summarize Coverage with deepTools
+
+```
+# -p defaults to max/2 ... taking *much* longer than the 8 min on VirtualBox?
+plotFingerprint -p 1 -b K4.sorted.bam ~/work/chip-seq/HUES64_rep1.input.chr20.bam -plot K4.enrichment.png	
+
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/*.png Desktop
+
+bamCoverage -b K4.sorted.bam -o K4.bigWig
+
+# grep ^chr20 ~/work/genomes/hg19-iGenomes.bed > ~/scratch/genomes/hg19-iGenomes.chr20.bed
+computeMatrix scale-regions -S K4.bigWig -R ../genomes/hg19-iGenomes.chr20.bed -out K4.scaled.mat.gz
+plotHeatmap -m K4.scaled.mat.gz -out K4.scaled.png
+
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/*.png Desktop
+```
+
+[1:00 - 2:00] Call Peaks with MACS2
+
+```
+macs2 callpeak -t K4.sorted.bam -c ~/work/chip-seq/HUES64_rep1.input.chr20.bam -g hs -n K4
+
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/*.bigWig Desktop
+# scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/chip-seq/*.narrowPeak Desktop
+```
+
+
