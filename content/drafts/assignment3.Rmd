@@ -11,6 +11,10 @@ Learning Objectives
 1. More practice with R
     - Debug error messages
     - Statistical thought (variance, difference)
+1. Install R packages 
+    - annotatr
+    - ggbiplot ggplot2 dplyr 
+    - rtracklayer Homo.sapiens bumphunter RTopper reactome.db GRanges
 
 
 Tasks
