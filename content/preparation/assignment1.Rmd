@@ -1,5 +1,5 @@
 ---
-title: "Prep Work #1 - Swirl and base R"
+title: "Prep Work #1 / Confirm Registration - Swirl and base R"
 date: "2018-03-05"
 ---
 
