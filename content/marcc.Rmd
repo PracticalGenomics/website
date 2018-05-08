@@ -15,4 +15,4 @@ Compute resources for this workshop are being generously provided by the Marylan
     - When asked for "Verification Code" enter the six digit from Google Authenticator (expires every 20 seconds)
     - Enter your password
 
-NOTE: Windows users will need to install an ssh client such as [PuTTY](https://gist.github.com/sean-cho/1ebe89311b55b9a097960c2fd9b0e69d#file-pg2018_putty-md) 
+NOTE: Windows users will need to install an ssh client such as [PuTTY](https://gist.github.com/sean-cho/3524f85e092c9ce06d89a6d2e3482baf#file-pg2018_putty-md) 
