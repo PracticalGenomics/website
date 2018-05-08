@@ -1,0 +1,76 @@
+---
+title: "Prep Work #3 - MARCC and Troubleshooting R"
+date: "2018-05-09"
+---
+
+## Learning Objectives
+
+1. Continue practicing genomics data manipulation using R
+    - Review loading and examining a data.frame
+    - Find data of interest using boolean vectors
+    - Troubleshoot common error messages
+1. Install R packages 
+1. Practice using Unix on MARCC
+    - Log in using ssh and two-factor authentication
+    - Transfer a file using scp
+    - Run a program available through `module load`
+
+
+## Tasks
+
+1. Subset and wrangle RNA-seq data in R ( [preview](https://github.com/PracticalGenomics/assignments/blob/master/prepwork-may.Rmd) )
+    - Download assignment ( [`prepwork-may.Rmd`](https://github.com/PracticalGenomics/assignments/raw/master/prepwork-may.Rmd) )
+        - Make sure to save file with extension `.Rmd` and not `.Rmd.txt`
+    - Save work as `prepwork-may-lastname.Rmd` and email to your TA
+1. Install R packages
+    - From [CRAN](https://cran.r-project.org) e.g. `install.packages( "package" )`
+        - ggplot2, dplyr, ggbiplot, gplots
+    - From [Bioconductor](https://bioconductor.org) e.g. `biocLite( "package" )`
+        - annotatr, rtracklayer, Homo.sapiens, bumphunter, RTopper, reactome.db, GRanges
+        - Note: Load the `biocLite()` function once per R session via `source( "https://bioconductor.org/biocLite.R" )` 
+1. Work with MARCC
+    - [Setup and test](https://practicalgenomics.github.io/marcc) Google Authenticator
+    - Transfer file from MARCC
+        - Note: Windows use `md` and `pscp` instead of `mkdir` and `pscp`
+    
+    ```
+    # Change to the "Desktop" directory on your laptop
+    cd Desktop
+    
+    # Make a directory called PG2018 if it doesn't already exist
+    mkdir PG2018
+    
+    # Secure copy a file from MARCC to your PG2018 directory
+    scp username@jhu.edu@gateway2.marcc.jhu.edu:work/test.txt PG2018
+    ```
+
+    - View the contents of `Desktop/PG2018/test.txt`
+    - Build a [genome index](https://www.youtube.com/watch?v=u06cm08U0BQ) using [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+
+    ```
+    # Use your username, which should resemble lastname-temp
+    ssh gateway2.marcc.jhu.edu -l username@jhu.edu
+    
+    # Connect to compute node interactively
+    srun -p shared -c 1 --mem 1024 -t 30 --pty bash
+    
+    # Switch to high performance file system
+    cd scratch
+    
+    # Create personal directory for genome datasets
+    mkdir genomes
+    cd genomes
+    
+    # Make a local working copy of chr20 from human hg19
+    cp ~/work/genomes/chr20.fa.gz .
+    ls -l
+    gunzip chr20.fa.gz
+    ls -l
+    
+    # Load program
+    module load bowtie2/2.2.5
+    
+    # Index genome ... ~2 min
+    bowtie2-build chr20.fa chr20
+    ls -l
+    ```
