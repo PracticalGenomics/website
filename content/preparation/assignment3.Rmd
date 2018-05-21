@@ -28,8 +28,9 @@ date: "2018-05-10"
     - From [Bioconductor](https://bioconductor.org) e.g. `biocLite( "package" )`
         - annotatr, rtracklayer, Homo.sapiens, bumphunter, RTopper, reactome.db, GRanges
         - Note: Load the `biocLite()` function once per R session via `source( "https://bioconductor.org/biocLite.R" )` 
-    - From GitHub e.g. `devtools::install_github( "username/repo" )`
+    - From GitHub e.g. `install_github( "name/repo" )`
         - vqv/ggbiplot
+        - Note: Load the `install_github()` function via `library( "devtools" )`
 1. Work with MARCC
     - [Setup and test](https://practicalgenomics.github.io/marcc) Google Authenticator
     - Transfer file from MARCC
