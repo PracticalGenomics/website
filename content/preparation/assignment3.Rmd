@@ -24,10 +24,12 @@ date: "2018-05-10"
     - Save work as `prepwork-may-lastname.Rmd` and email to your TA
 1. Install R packages
     - From [CRAN](https://cran.r-project.org) e.g. `install.packages( "package" )`
-        - ggplot2, dplyr, ggbiplot, gplots
+        - ggplot2, dplyr, gplots, devtools
     - From [Bioconductor](https://bioconductor.org) e.g. `biocLite( "package" )`
         - annotatr, rtracklayer, Homo.sapiens, bumphunter, RTopper, reactome.db, GRanges
         - Note: Load the `biocLite()` function once per R session via `source( "https://bioconductor.org/biocLite.R" )` 
+    - From GitHub e.g. `devtools::install_github( "username/repo" )`
+        - vqv/ggbiplot
 1. Work with MARCC
     - [Setup and test](https://practicalgenomics.github.io/marcc) Google Authenticator
     - Transfer file from MARCC
