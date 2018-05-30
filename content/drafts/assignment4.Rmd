@@ -22,10 +22,18 @@ Tasks
 
     ```
     # Connect to compute node interactively
-    srun -p shared -c 1 --mem 1024 -t 30 --pty bash
+    # This puts you in an environment that can support running programs and
+    # doing interactive work.
+    
+    # Never, ever run programs on the login node.
+    srun -p shared -c 1 --mem 1024 -t 120 --pty bash
     
     # Load conda package manager
     module load anaconda-python/3.6
+    
+    # You will find it useful to keep programs well organized so that you can easily
+    # run the version that you need, and avoid conflicting dependencies.
+    # package managers and software environments do this nicely.
     
     # Add bioconda for scientific software
     # ... https://bioconda.github.io/recipes.html#recipes
@@ -36,15 +44,21 @@ Tasks
     # Create environment for an isolated, reproducible software stack
     conda create --name pg2018
     
-    # Activate environment
+    # Activate environment.
     source activate pg2018
+    # now you should see (pg2018) before the command line prompt
     
-    # Install programs
+    # Install programs into this environment. Copy these lines one
+    # at a time and make sure that each installation is successful.
     conda install macs2=2.1.1.20160309
     conda install deeptools=2.5.7
     conda install htslib=1.3
     conda install rsem=1.3.0
     conda install ucsc-wigtobigwig
+    
+    # Now you can run any of these programs from the command line, as long as the
+    # pg2018 environment is activated. Try typing deeptools at the command
+    # line to make sure that the program is accessible.
     
     # Switch to high performance file system
     cd ~/scratch
@@ -57,7 +71,7 @@ Tasks
     computeMatrix reference-point -S ~/work/roadmap/HUES64_rep1.H3K4me3.chr20.bw -R     ~/work/genomes/hg19-iGenomes.bed -out k4.mat.gz
     plotHeatmap -m k4.mat.gz -o k4.png
     ```
-1. Copy metagene plot from MARCC to local computer
+1. Log out of MARCC (or use a different terminal). Copy metagene plot from MARCC to local computer
     ```
     scp username-temp@jhu.edu@gateway2.marcc.jhu.edu:scratch/prepwork/k4.png Desktop
     ```
