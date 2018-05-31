@@ -23,6 +23,8 @@ date: "2018-05-10"
         - Make sure to save file with extension `.Rmd` and not `.Rmd.txt`
     - Save work as `prepwork-may-lastname.Rmd` and email to your TA
 1. Install R packages
+    - Install each package one at a time, testing that everything is ok with `library( "___" )`
+        - i.e. No `Error : there is no package called "___"`
     - From [CRAN](https://cran.r-project.org) e.g. `install.packages( "package" )`
         - ggplot2, dplyr, gplots, devtools
     - From [Bioconductor](https://bioconductor.org) e.g. `biocLite( "package" )`
