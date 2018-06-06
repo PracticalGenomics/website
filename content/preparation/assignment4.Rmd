@@ -1,6 +1,6 @@
 ---
 title: "Prep Work #4 - Conda, scp, IGV, and Plotting in R"
-date: "2018-06-04"
+date: "2018-06-05"
 ---
 
 ## Learning Objectives
