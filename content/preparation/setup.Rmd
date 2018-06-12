@@ -5,10 +5,9 @@ date: "2018-06-15"
 
 ## Did you?
 
-1. Email your TA the `k4.png` file after installing the 5 programs via `conda install`
-1. Email your TA an IGV screenshot zoomed into chr20 for `HUES64_rep1.mRNA.chr20.bw`
-1. Use `library()` to check that each of the 12 R packages you installed loads correctly
-    - e.g. `library( "annotatr" )`
+1. Email your TA the `k4.png` file after `conda install` 5 programs
+1. Email your TA an IGV screenshot for `HUES64_rep1.mRNA.chr20.bw`
+1. Check your 12 R packages are installed e.g. `library( "annotatr" )`
 
 ## Do each morning by 9:00am ...
 
