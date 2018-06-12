@@ -19,20 +19,17 @@ date: "2018-06-05"
     - Connect to MARCC [via ssh](https://practicalgenomics.github.io/marcc/)
     - Follow these [instructions](https://github.com/PracticalGenomics/assignments/blob/master/conda.Rmd)
     - Log out of MARCC (or use a different terminal).  Transfer metagene plot from MARCC to local computer to view image (scroll right to see entire command ... ends in `Desktop/PG2018`)
-
     ```
     scp username@jhu.edu@gateway2.marcc.jhu.edu:scratch/prepwork/k4.png Desktop/PG2018
     ```
-
+    - Submit `k4.png` to your TA
 1. Install IGV
     - Install the [IGV 2.4.10](https://software.broadinstitute.org/software/igv/download) Mac App or Windows Zip (not Launch icon)
         - Install [Java](https://www.java.com/download) v1.8 if not already installed (not 1.7 or 1.9)
     - Transfer [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html) file using scp (scroll to see entire command)
-    
     ```
     scp username@jhu.edu@gateway2.marcc.jhu.edu:work/roadmap/HUES64_rep1.mRNA.chr20.bw Desktop/PG2018
     ```
-    
     - Start IGV
         - Select "Human [hg19](https://www.ncbi.nlm.nih.gov/grc/human)" in the upper left
         - In the File menu, select "Load from File" and select the `HUES64_rep1.mRNA.chr20.bw` file in Desktop/PG2018

@@ -1,0 +1,39 @@
+---
+title: "Morning Setup and Final Checklist"
+date: "2018-06-15"
+---
+
+## Did you?
+
+1. Email your TA the `k4.png` file after installing the 5 programs via `conda install`
+1. Email your TA an IGV screenshot zoomed into chr20 for `HUES64_rep1.mRNA.chr20.bw`
+1. Use `library()` to check that each of the 12 R packages you installed loads correctly
+    - e.g. `library( "annotatr" )`
+
+## Do each morning by 9:00am ...
+
+1. **Help** -- Monitor `#questions` from your Slack.app (laptop and phone)
+1. **Unix** -- Load programs installed via conda on MARCC
+    ```
+    ssh gateway2.marcc.jhu.edu -l username@jhu.edu
+    srun -p shared -c 1 --mem 1024 -t 120 --pty bash
+    module load anaconda-python/3.6
+    source activate pg2018
+    deeptools
+    ```
+1. **Transfer** -- Practice copying a file from MARCC
+    - Scroll to see entire command ... ends in `Desktop/PG2018/...`
+    ```
+    scp username@jhu.edu@gateway2.marcc.jhu.edu:work/test.txt Desktop/PG2018/monday.txt
+    ```
+    - Check that file exists on your laptop by opening it
+1. **IGV** -- Start genomic visualization tool
+    - Test by loading `HUES64_rep1.mRNA.chr20.bw` and zooming into `DNMT3B` gene
+1. **RStudio** -- Start integrated development environment for R
+    - Test by `library( "annotatr" )`
+1. **Notes** -- Store commands using TextEdit.app or Wordpad
+    - Be sure to disable auto-correct features
+        - e.g. Uncheck in TextEdit > Preferences
+            - Correct spelling automatically
+            - Smart quotes
+            - Smart dashes
