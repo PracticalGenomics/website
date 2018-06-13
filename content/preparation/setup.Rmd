@@ -1,6 +1,6 @@
 ---
 title: "Morning Setup and Final Checklist"
-date: "2018-06-15"
+date: "2018-06-13"
 ---
 
 ## Did you?
