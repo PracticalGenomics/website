@@ -4,6 +4,8 @@ title: "Home Page Header"
 
 # Welcome to Practical Genomics Workshop 2018!!
 
+<center><a href="http://genomics.jhu.edu/images/agendaPG2017.pdf">View agenda</a></center>
+
 ```{r echo=FALSE}
 matFPKM <- read.table( "https://c-moor.github.io/data/matFPKM.txt", header=TRUE, sep="\t" )
 ecto <- rowSums( matFPKM[ , c( "ectoderm_rep1","ectoderm_rep2","ectoderm_rep3" ) ] )
