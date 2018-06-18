@@ -4,7 +4,7 @@ title: "Home Page Header"
 
 # Welcome to Practical Genomics Workshop 2018!!
 
-<center><a href="http://genomics.jhu.edu/images/agendaPG2017.pdf">View agenda</a></center>
+<center><a href="https://drive.google.com/uc?id=1hcEgLOGVzdFhK_68vZqwdpGMRRc7RqFO">View agenda</a></center>
 
 ```{r echo=FALSE}
 matFPKM <- read.table( "https://c-moor.github.io/data/matFPKM.txt", header=TRUE, sep="\t" )
